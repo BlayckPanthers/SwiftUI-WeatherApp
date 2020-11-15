@@ -18,7 +18,7 @@ struct ContentView: View {
                 Text("Paris, FR")
                     .font(.system(size: 32, weight: .medium, design: .default))
                     .foregroundColor(.white)
-                    .padding()
+                    .padding(1)
                 Spacer()
             }
             
