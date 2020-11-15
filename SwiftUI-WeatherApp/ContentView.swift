@@ -30,15 +30,9 @@ struct ContentView: View {
                         .font(.system(size: 70, weight: .medium))
                         .foregroundColor(.white)
                 }
-                Spacer()
                 HStack {
                     ForEach(weathers) { weather in
-                        VStack {
-                            Text(weather.day)
-                            Image(systemName: weather.imageSF)
-                                .renderingMode(.original)
-                            Text(weather.temp)
-                        }
+                        WeatherDaySubView(weather: weather)
                     }
                 }
                 Spacer()
@@ -60,5 +54,28 @@ let weathers : [Weather] = [
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct WeatherDaySubView: View {
+    
+    var weather: Weather
+    
+    var body: some View {
+        VStack {
+            Text(weather.day)
+                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(.white)
+            
+            Image(systemName: weather.imageSF)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 40, height: 40)
+            
+            Text("\(weather.temp)°")
+                .font(.system(size: 28, weight: .medium))
+                .foregroundColor(.white)
+        }
     }
 }
