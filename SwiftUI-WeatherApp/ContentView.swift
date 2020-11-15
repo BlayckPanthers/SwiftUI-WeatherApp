@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .white]),
+            LinearGradient(gradient: Gradient(colors: [.blue, Color("lightBlue")]),
                            startPoint: .topLeading,
                            endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -29,12 +29,21 @@ struct ContentView: View {
                     Text("32°")
                         .font(.system(size: 70, weight: .medium))
                         .foregroundColor(.white)
-                }
-                Spacer()
+                }.padding(.bottom, 40)
                 HStack(spacing: 20) {
                     ForEach(weathers) { weather in
                         WeatherDaySubView(weather: weather)
                     }
+                }
+                Spacer()
+                Button {
+                    print("tapped")
+                } label : {
+                    Text("Change Day Time")
+                        .frame(width: 280, height: 50)
+                        .background(Color(.white))
+                        .font(.system(size: 20, weight: .bold))
+                        .cornerRadius(10.0)
                 }
                 Spacer()
             }
@@ -45,7 +54,7 @@ struct ContentView: View {
 }
 
 let weathers : [Weather] = [
-    Weather(day: "TUE", imageSF: "cloud.bolt.rain.fill", temp: "27"),
+    Weather(day: "TUE", imageSF: "wind", temp: "27"),
     Weather(day: "WED", imageSF: "sun.max.fill", temp: "33"),
     Weather(day: "THU", imageSF: "cloud.sun.fill", temp: "31"),
     Weather(day: "FRI", imageSF: "sun.max.fill", temp: "38"),
