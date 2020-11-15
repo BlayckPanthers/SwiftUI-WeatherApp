@@ -30,7 +30,8 @@ struct ContentView: View {
                         .font(.system(size: 70, weight: .medium))
                         .foregroundColor(.white)
                 }
-                HStack {
+                Spacer()
+                HStack(spacing: 20) {
                     ForEach(weathers) { weather in
                         WeatherDaySubView(weather: weather)
                     }
