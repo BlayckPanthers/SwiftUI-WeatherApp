@@ -12,9 +12,9 @@ struct Weather : Identifiable {
     var id = UUID()
     let day     : String
     let imageSF : String
-    let temp    : String
+    let temp    : Int
     
-    init(day: String, imageSF: String, temp: String) {
+    init(day: String, imageSF: String, temp: Int) {
         self.day = day
         self.imageSF = imageSF
         self.temp = temp
